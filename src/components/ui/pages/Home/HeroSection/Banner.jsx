@@ -42,7 +42,7 @@ const Banner = () => {
         <h1 className="text-6xl text-white font-bold">Crowdsourcing</h1>
         <h1 className="text-6xl text-[#F06] font-bold">Creativity</h1>
         <p className="text-white my-5">
-          Discover, contribute, and get paid for your ideas.
+          Pitch ideas—earn commissions in film & animation!
         </p>
         <Form onFinish={onFinish}>
           <div className="flex flex-col gap-3">
@@ -55,6 +55,13 @@ const Banner = () => {
                 },
               ]}
             >
+              <Checkbox
+                className="text-white mb-3"
+                checked={isChecked}
+                onChange={(e) => setIsChecked(e.target.checked)}
+              >
+                I agree to receive emails and updates from Motion Bounty
+              </Checkbox>
               <div className="relative">
                 <Input
                   style={{ height: 60, width: 420 }}
@@ -62,19 +69,15 @@ const Banner = () => {
                 />
                 <button
                   type="submit"
-                  className="absolute left-72  top-1 text-white bg-[#F06]  px-4 rounded-lg h-[87%] flex items-center justify-center"
+                  disabled={!isChecked}
+                  className={`absolute left-72 top-1 text-white bg-[#F06] px-4 rounded-lg h-[87%] flex items-center justify-center ${
+                    !isChecked ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
                 >
                   Join the waitlist
                 </button>
               </div>
             </Form.Item>
-            <Checkbox
-              className="text-white"
-              checked={isChecked}
-              onChange={(e) => setIsChecked(e.target.checked)}
-            >
-              I agree to receive emails and updates from Motion Bounty
-            </Checkbox>
           </div>
         </Form>
       </div>
