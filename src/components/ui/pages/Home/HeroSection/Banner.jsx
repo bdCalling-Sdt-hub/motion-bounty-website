@@ -11,27 +11,28 @@ const Banner = () => {
   const onFinish = async (values) => {
     const data = {
       email: values.email,
-      receiveEmailsAndUpdates: isChecked,
     };
     console.log("Received values:", data);
 
     try {
-      const res = await fetch(
-        `https://api.beehiiv.com/v2/publications/${process.env.NEXT_PUBLIC_PUBLICATION_ID2}/subscriptions`,
+      const response = await fetch(
+        "http://localhost:3000/api/email_subscription",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_BEARER_TOKEN}`,
           },
           body: JSON.stringify(data),
         }
       );
-      console.log("response", res);
-      if (res.ok) {
-        toast.success("Subscribed Successfully");
+      console.log("backend response", response);
+      if (response.ok) {
+        toast.success("Email sent successfully");
       }
-    } catch (error) {}
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast.error("Error sending email");
+    }
   };
 
   // console.log(process.env.NEXT_PUBLIC_BEARER_TOKEN);
@@ -46,6 +47,13 @@ const Banner = () => {
         </p>
         <Form onFinish={onFinish}>
           <div className="flex flex-col gap-3">
+            <Checkbox
+              className="text-white mb-3"
+              checked={isChecked}
+              onChange={(e) => setIsChecked(e.target.checked)}
+            >
+              I agree to receive emails and updates from Motion Bounty
+            </Checkbox>
             <Form.Item
               name="email"
               rules={[
@@ -55,15 +63,9 @@ const Banner = () => {
                 },
               ]}
             >
-              <Checkbox
-                className="text-white mb-3"
-                checked={isChecked}
-                onChange={(e) => setIsChecked(e.target.checked)}
-              >
-                I agree to receive emails and updates from Motion Bounty
-              </Checkbox>
               <div className="relative">
                 <Input
+                  name="email"
                   style={{ height: 60, width: 420 }}
                   placeholder="Enter Your Email"
                 />
