@@ -40,14 +40,16 @@ const Banner = () => {
   return (
     <div className="bannerImage h-screen  flex items-center justify-center">
       <div className="px-6 sm:px-10 md:px-20 lg:px-40 bg-[#FF0066] h-full flex flex-col justify-center w-full bg-opacity-20">
-        <h1 className="text-5xl md:text-6xl text-white font-bold">
-          Crowdsourcing
+        <h1 className="text-4xl md:text-6xl text-[#FF0066] font-bold">
+          Pitch ideas
         </h1>
-        <h1 className="text-5xl md:text-6xl text-[#FF0066] font-bold">
-          Creativity
+        <h1 className="text-4xl md:text-6xl text-white font-bold">
+          Earn commissions <br /> in film & animation!
         </h1>
-        <p className="text-white my-5 text-lg sm:text-base md:text-lg">
-          Pitch ideas—earn commissions in film & animation!
+        <p className="text-white my-5 text-lg sm:text-base md:w-[65%] md:text-lg">
+          Motion Bounty helps creators and fans collaborate to bring
+          groundbreaking projects to life. Discover, support, and earn equity in
+          the ideas you believe in.
         </p>
         <Form onFinish={onFinish}>
           <div className="flex flex-col gap-3">
