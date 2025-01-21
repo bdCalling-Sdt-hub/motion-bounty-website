@@ -1,6 +1,5 @@
 import axios from "axios";
 import { NextResponse } from "next/server";
-import toast from "react-hot-toast";
 
 export async function POST(request) {
   const body = await request.json();

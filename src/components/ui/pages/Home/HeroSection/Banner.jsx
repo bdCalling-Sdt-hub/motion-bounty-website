@@ -16,7 +16,7 @@ const Banner = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/email_subscription",
+        "https://motion-bounty-website.vercel.app/api/email_subscription",
         {
           method: "POST",
           headers: {
@@ -39,11 +39,11 @@ const Banner = () => {
   // console.log(import.meta.env.BEARER_TOK?EN);
   return (
     <div className="bannerImage h-screen  flex items-center justify-center">
-      <div className="px-6 sm:px-10 md:px-20 lg:px-40 bg-[#F06] h-full flex flex-col justify-center w-full bg-opacity-20">
+      <div className="px-6 sm:px-10 md:px-20 lg:px-40 bg-[#FF0066] h-full flex flex-col justify-center w-full bg-opacity-20">
         <h1 className="text-5xl md:text-6xl text-white font-bold">
           Crowdsourcing
         </h1>
-        <h1 className="text-5xl md:text-6xl text-[#F06] font-bold">
+        <h1 className="text-5xl md:text-6xl text-[#FF0066] font-bold">
           Creativity
         </h1>
         <p className="text-white my-5 text-lg sm:text-base md:text-lg">
