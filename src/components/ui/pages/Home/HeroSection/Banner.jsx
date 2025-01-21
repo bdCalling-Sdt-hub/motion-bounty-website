@@ -38,17 +38,21 @@ const Banner = () => {
   // console.log(process.env.NEXT_PUBLIC_BEARER_TOKEN);
   // console.log(import.meta.env.BEARER_TOK?EN);
   return (
-    <div className="bannerImage h-[800px]">
-      <div className="ps-40 bg-[#F06] h-full flex flex-col justify-center w-full bg-opacity-10">
-        <h1 className="text-6xl text-white font-bold">Crowdsourcing</h1>
-        <h1 className="text-6xl text-[#F06] font-bold">Creativity</h1>
-        <p className="text-white my-5">
+    <div className="bannerImage h-screen  flex items-center justify-center">
+      <div className="px-6 sm:px-10 md:px-20 lg:px-40 bg-[#F06] h-full flex flex-col justify-center w-full bg-opacity-20">
+        <h1 className="text-5xl md:text-6xl text-white font-bold">
+          Crowdsourcing
+        </h1>
+        <h1 className="text-5xl md:text-6xl text-[#F06] font-bold">
+          Creativity
+        </h1>
+        <p className="text-white my-5 text-lg sm:text-base md:text-lg">
           Pitch ideas—earn commissions in film & animation!
         </p>
         <Form onFinish={onFinish}>
           <div className="flex flex-col gap-3">
             <Checkbox
-              className="text-white mb-3"
+              className=" text-md text-slate-300 mb-3"
               checked={isChecked}
               onChange={(e) => setIsChecked(e.target.checked)}
             >
@@ -63,16 +67,16 @@ const Banner = () => {
                 },
               ]}
             >
-              <div className="relative">
+              <div className="relative flex flex-col sm:flex-row">
                 <Input
                   name="email"
-                  style={{ height: 60, width: 420 }}
+                  className="p-3 w-full md:w-[530px] py-[21px] rounded-lg"
                   placeholder="Enter Your Email"
                 />
                 <button
                   type="submit"
                   disabled={!isChecked}
-                  className={`absolute left-72 top-1 text-white bg-[#F06] px-4 rounded-lg h-[87%] flex items-center justify-center ${
+                  className={`md:absolute left-96 top-2 mt-2 sm:mt-0 sm:ml-3 text-white bg-[#F06] px-4 rounded-lg h-[50px] flex items-center justify-center ${
                     !isChecked ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                 >
