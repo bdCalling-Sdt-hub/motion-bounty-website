@@ -1,9 +1,11 @@
 "use client";
 
-import { Checkbox, Form, Input } from "antd";
+import { Checkbox, ConfigProvider, Form, Input } from "antd";
 import "./Banner.css";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import Image from "next/image";
+import logo from "../../../../../assets/motionBountyLogo2.svg";
 
 const Banner = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -39,7 +41,14 @@ const Banner = () => {
   // console.log(import.meta.env.BEARER_TOK?EN);
   return (
     <div className="bannerImage h-screen  flex items-center justify-center">
-      <div className="px-6 sm:px-10 md:px-20 lg:px-40 bg-[#FF0066] h-full flex flex-col justify-center w-full bg-opacity-20">
+      <div className="px-6 relative sm:px-10 md:px-20 lg:px-40 bg-[#FF0066] h-full flex flex-col justify-center w-full bg-opacity-20">
+        <Image
+          className="absolute top-10 md:w-60 md:h-16 w-40 h-10"
+          src={logo}
+          alt="Motion Bounty"
+          width={100}
+          height={100}
+        />
         <h1 className="text-4xl md:text-6xl text-[#FF0066] font-bold">
           Pitch Ideas
         </h1>
@@ -53,13 +62,21 @@ const Banner = () => {
         </p>
         <Form onFinish={onFinish}>
           <div className="flex flex-col gap-3">
-            <Checkbox
-              className=" text-md text-slate-300 mb-3"
-              checked={isChecked}
-              onChange={(e) => setIsChecked(e.target.checked)}
+            <ConfigProvider
+              theme={{
+                token: {
+                  colorPrimary: "#FF0066",
+                },
+              }}
             >
-              I agree to receive emails and updates from Motion Bounty
-            </Checkbox>
+              <Checkbox
+                className="text-[12px] text-slate-300 mb-3"
+                checked={isChecked}
+                onChange={(e) => setIsChecked(e.target.checked)}
+              >
+                I agree to receive emails and updates from Motion Bounty
+              </Checkbox>
+            </ConfigProvider>
             <Form.Item
               name="email"
               rules={[
