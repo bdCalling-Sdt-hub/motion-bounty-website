@@ -44,7 +44,7 @@ const Banner = () => {
           Pitch Ideas
         </h1>
         <h1 className="text-4xl md:text-6xl text-white font-bold">
-          Earn Commissions <br /> In Film & Animation!
+          Earn Commissions <br /> in Film & Animation!
         </h1>
         <p className="text-white my-5 text-lg sm:text-base md:w-[35%] md:text-lg">
           Motion Bounty Helps Creators And Fans Collaborate To Bring
