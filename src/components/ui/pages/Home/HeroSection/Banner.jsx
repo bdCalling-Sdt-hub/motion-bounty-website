@@ -41,24 +41,24 @@ const Banner = () => {
   // console.log(import.meta.env.BEARER_TOK?EN);
   return (
     <div className="bannerImage h-screen  flex items-center justify-center">
-      <div className="px-6 relative sm:px-10 md:px-20 lg:px-40 bg-[#FF0066] h-full flex flex-col justify-center w-full bg-opacity-20">
+      <div className="px-6 relative sm:px-10 md:px-20 lg:px-40 h-full flex flex-col justify-center w-full bg-gradient-to-r from-black/30 via-black/5 to-transparent">
         <Image
-          className="absolute top-10 md:w-60 md:h-16 w-40 h-10"
+          className="absolute top-10 md:w-56 md:h-10 w-40 h-8"
           src={logo}
           alt="Motion Bounty"
           width={100}
           height={100}
         />
-        <h1 className="text-4xl md:text-6xl text-[#FF0066] font-bold">
+        <h1 className="text-4xl font-one md:text-6xl text-[#FF0066] font-bold">
           Pitch Ideas
         </h1>
-        <h1 className="text-4xl md:text-6xl text-white font-bold">
+        <h1 className="text-4xl font-one md:text-6xl text-white font-bold">
           Earn Commissions <br /> in Film & Animation!
         </h1>
-        <p className="text-white my-5 text-lg sm:text-base md:w-[35%] md:text-lg">
-          Motion Bounty Helps Creators And Fans Collaborate To Bring
-          Groundbreaking Projects To Life. Discover, Support, And Earn Equity In
-          The Ideas You Believe In.
+        <p className="text-white my-5 font-two text-lg sm:text-base md:w-[35%] md:text-lg">
+          Motion Bounty helps creators and fans collaborate to bring
+          groundbreaking projects to life. Discover, support, and earn equity in
+          the ideas you believe in.
         </p>
         <Form onFinish={onFinish}>
           <div className="flex flex-col gap-3">
@@ -70,11 +70,13 @@ const Banner = () => {
               }}
             >
               <Checkbox
-                className="text-[12px] text-slate-300 mb-3"
+                className="mb-3"
                 checked={isChecked}
                 onChange={(e) => setIsChecked(e.target.checked)}
               >
-                I agree to receive emails and updates from Motion Bounty
+                <p className="text-[12px] md:text-lg text-slate-200 ">
+                  I agree to receive emails and updates from Motion Bounty
+                </p>
               </Checkbox>
             </ConfigProvider>
             <Form.Item
@@ -95,7 +97,7 @@ const Banner = () => {
                 <button
                   type="submit"
                   disabled={!isChecked}
-                  className={`md:absolute left-96 top-2 mt-2 sm:mt-0 sm:ml-3 text-white bg-[#F06] px-4 rounded-lg h-[50px] flex items-center justify-center ${
+                  className={`md:absolute left-96 font-one font-semibold top-2 mt-2 sm:mt-0 sm:ml-3 text-white bg-[#F06] px-4 rounded-lg h-[50px] flex items-center justify-center ${
                     !isChecked ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                 >
